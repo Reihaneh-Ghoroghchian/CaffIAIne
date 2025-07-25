@@ -22,9 +22,21 @@ Below, sketch (ASCII, hand-drawn JPEG/PNG pasted in, or ASCII art) the high-leve
    - E.g., Streamlit, CLI, Slack bot  
 
 2. **Agent Core**  
-   - **Planner**: how you break down tasks  
-   - **Executor**: LLM prompt + tool-calling logic  
-   - **Memory**: vector store, cache, or on-disk logs  
+Agent Core
+├── 1. Planner:
+│    └── Sequence the tasks:
+│        - Get weather
+│        - Access closet
+│        - Prepare prompt/images for Gemini
+│        - Ask Gemini for outfit
+│        - Return suggestion
+│
+├── 2. Executor:
+│    └── Executes each tool call and prompt in sequence or parallel
+│
+├── 3. Memory (optional):
+│    └── Caches previous forecasts or user preferences
+
 
 3. **Tools / APIs**
 
@@ -43,6 +55,8 @@ Below, sketch (ASCII, hand-drawn JPEG/PNG pasted in, or ASCII art) the high-leve
 
 
 4. **Observability**  
-   - Logging of each reasoning step  
-   - Error handling / retries  
+  Output Generator
+└── Presents:
+- Recommended outfit (text and optional visual layout)
+- Reasoning ("because it's rainy and 15°C…")
 
